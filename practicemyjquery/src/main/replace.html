@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  tr.alt td {
+    background: #ecf6fc;
+  }
+  tr.over td {
+    background: #bcd4ec;
+  }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript">
+$(document).ready(function(){
+   $(".replaceMe td").mouseover(function(){$(this).after("New thing").remove();});
+ $(".replaceMe tr:even").addClass("alt");
+ });
+  </script>
+</head>
+<body>
+  <table class="replaceMe">
+    <thead>
+    <th>Header</th>
+    <tr><td>Row with Index #0</td></tr>
+    <tr><td>Row with Index #1</td></tr>
+
+    <tr><td>Row with Index #2</td></tr>
+    <tr><td>Row with Index #3</td></tr>
+    </thead>
+  </table>
+</body>
+</html>
