@@ -1,0 +1,32 @@
+<html id="greatgreatgrandpa">
+    <head>
+        <title>DOM Level 2 Propagation Example</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+        $(function(){
+        $('*').each(function(){
+        var current = this;
+        this.addEventListener('click',function(event) {
+        say('Capture for ' + current.tagName + '#'+ current.id +
+        ' target is ' + event.target.id);
+        },true);
+        this.addEventListener('click',function(event) {
+        say('Bubble for ' + current.tagName + '#'+ current.id +
+        ' target is ' + event.target.id);
+        },false);
+        });
+        });
+        function say(text) {
+        $('#console').append('<div>'+text+'</div>');
+        }
+        </script>
+    </head>
+    <body id="greatgrandpa">
+        <div id="grandpa">
+            <div id="pops">
+                <img id="obama" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg"/>
+            </div>
+        </div>
+        <div id="console"></div>
+    </body>
+</html>
