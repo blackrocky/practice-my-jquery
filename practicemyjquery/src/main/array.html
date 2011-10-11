@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Fun with Arrays</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#obama').click(function(e) {
+			var anObject = {one:1, two:2, three:3, four:4, five:5, six:6, seven:7, eight:8, nine:9, ten:10};
+			say('Each:');
+			var output = '';
+			$.each(anObject,function(name,value) {
+				output += '(' + name + ', ' + value + ') ';
+			});
+			say(output);
+			
+			var nums = [1,2,3,4,5,6,7,8,9,10];
+			
+			say('Grep:');
+			output = '';
+			var smallNums = $.grep(nums,function(value, index) {
+				return value < 4;
+			});
+			$.each(smallNums,function(index, value) {
+				output += '['+ index + '] = ' + value + '; '; 
+			});
+			say(output);
+			
+			say('PlusThree:');
+			output = '';
+			var plusThree = $.map(nums,function(value, index){return value+3;});
+			$.each(plusThree,function(index, value) {
+				output += '['+ index + '] = ' + value + '; ';
+			});
+			say(output);
+
+			say('InArray:');
+			output = '';
+			var index = $.inArray(5, nums);
+			output = 'index for number 5 is: ' + index;
+			say(output);
+			
+		});
+	});
+	function say(text) {
+	    $('#console').append('<div>'+text+'</div>');
+	}
+</script>
+</head>
+<body>
+<p>Click on the image!</p>
+<img id="obama"
+	src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg" />
+<div id="console"></div>
+</body>
+</html>
