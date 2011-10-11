@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Extend</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	var target = { a: 1, b: 2, c: 3 };
+	var source1 = { c: 4, d: 5, e: 6 };
+	var source2 = { e: 7, f: 8, g: 9 };
+	$(function(){
+		$('#targetBeforeDisplay').html(displayArray(target));
+		$('#source1Display').html(displayArray(source1));
+		$('#source2Display').html(displayArray(source2));
+		$.extend(target,source1,source2);
+		$('#targetAfterDisplay').html(displayArray(target));
+	});
+	function displayArray(array) {
+		var outputTarget = '{';
+		$.each(array,function(name,value) {
+			outputTarget += name + ': ' + value + ' ';
+		});
+		outputTarget += '}';
+		return outputTarget;
+	}
+</script>
+<style type="text/css">
+label {
+	float: left;
+	width: 108px;
+	text-align: right;
+}
+
+p {
+	clear: both;
+}
+
+label+span {
+	margin-left: 6px;
+}
+</style>
+</head>
+<body>
+<fieldset><legend>Extend() Example</legend>
+<p><label>target (before) =</label> <span id="targetBeforeDisplay"></span></p>
+<p><label>source1 =</label> <span id="source1Display"></span></p>
+<p><label>source2 =</label> <span id="source2Display"></span></p>
+<p><label>target (after) =</label> <span id="targetAfterDisplay"></span>
+</p>
+</fieldset>
+</body>
+</html>
